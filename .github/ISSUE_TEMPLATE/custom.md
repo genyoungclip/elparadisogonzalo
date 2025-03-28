@@ -1,6 +1,7 @@
 ---
 name: Custom issue template
 about: Describe this issue template's purpose here.
+<<<<<<< HEAD
 title: Bug
 labels: ''
 assignees: koagonzalo11
@@ -67,3 +68,12 @@ body:
       placeholder: "Paste links or notes here..."
     validations:
       required: false
+=======
+title: ''
+labels: ''
+assignees: ''
+
+---
+
+
+>>>>>>> e215aa1 (Update issue templates)
