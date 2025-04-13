@@ -39,5 +39,9 @@ cd Koagonzalo11.github.io
 ```
 
 ## License
+### install Dependencies  
+Make sure you have **Node.js** **python** **git** **shell** and **npm** installed. Then, run:  
+```bash
+npm install
 
 This project is licensed under the Apache 2.0 License unless otherwise specified.
