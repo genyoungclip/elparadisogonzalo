@@ -19,7 +19,7 @@ cd asset3
 Certainly! Here’s a single block of code from “Install Dependencies” to “Contributions” for easy copying:
 
 ### 2️⃣ Install Dependencies  
-Make sure you have **Node.js** and **npm** installed. Then, run:  
+Make sure you have **Node.js** **python** **git** **shell** and **npm** installed. Then, run:  
 ```bash
 npm install
 
