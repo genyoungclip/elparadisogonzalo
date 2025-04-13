@@ -15,18 +15,17 @@ Linked to the **Unstoppable Domain**: <https://elparadisogonzalo.com>
 
 ---
 
-## Contract and Domain Information
+## Wallet & Contract Information
 
-- 🔐 **Ethereum Contract Address:** `0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245`
+- **Ethereum Wallet Address:** `0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245`
   - https://etherscan.io/address/0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245
 
-- 🔐 **BSC Contract Address:** `0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245`
+- **Binance Smart Chain (BSC) Contract Address:** `0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245`
   - https://bscscan.com/address/0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245
 
-- 🌍 **Unstoppable Domain:** `elparadisogonzalo.com`
+- **Unstoppable Domain:** `elparadisogonzalo.com`
 
-- 🆔 **Token ID:**
-  `107683363991053490216546573917850500707450188666044900143399111250914661716584`
+- **Token ID:** `107683363991053490216546573917850500707450188666044900143399111250914661716584`
 
 ---
 
@@ -41,4 +40,4 @@ cd Koagonzalo11.github.io
 
 ## License
 
-This project is licensed under the MIT License unless otherwise specified.
+This project is licensed under the Apache 2.0 License unless otherwise specified.
