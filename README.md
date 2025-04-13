@@ -30,7 +30,7 @@ gh auth login
 4️⃣ Authenticate with Google Cloud CLI
 
 gcloud auth login
-gcloud config set project YOUR_PROJECT_ID
+gcloud config set project elparadiaogonzalo_project
 
 5️⃣ Connect via SSH
 ssh -i /path/to/private_key username@server_ip
