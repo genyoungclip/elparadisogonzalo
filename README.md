@@ -23,5 +23,5 @@ Asset3 is a Web3-integrated dApp built for **Ethereum** and **Binance Smart Chai
 
 ### 1️⃣ Clone the Repository  
 ```bash
-git clone https://github.com/koagonzalo11/asset3.git
-cd asset3
+git clone https://github.com/koagonzalo11/elparadisogonzalo-monorepo.git
+cd elparadisogonzalo-monorepo
