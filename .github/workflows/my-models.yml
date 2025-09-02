@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=
 
 version: v0.1
-providers:
+providers: "koagonzalo11,elparadisogonzalo"
   - name: Custom
     models:
       - name: elparadisogonzalo-copilot
