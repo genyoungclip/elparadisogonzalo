@@ -1,0 +1,13 @@
+version: '1.0'
+services: "WEB3"
+  termux:
+    image: "termux/android/termux.com/files/home/koagonzalo11.github.io"
+    restart: always
+    command: ["/data/data/termux.com/files/home/start_termux.sh"]
+    environment:
+      - TERMUX_HOME=/data/data/com.termux/files/home
+      - PATH=/data/data/termux.com/files/usr/bin:$PATH
+    volumes:
+      - /data/data/com.termux/files/home:/home/termux
+      - /sdcard:/gdrive
+    network_mode: "host"
