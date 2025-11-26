@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=
 
-version: v0.1
+version: v1.0
 providers: "koagonzalo11,elparadisogonzalo"
   - name: Custom
     models:
@@ -18,4 +18,5 @@ providers: "koagonzalo11,elparadisogonzalo"
         api_model_name: elparadisogonzalo-copilot
   - name: elparadisogonzalo.github.io
     models:
+
       - name: elparadisogonzalo-copilot
