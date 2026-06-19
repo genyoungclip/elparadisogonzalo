@@ -26,4 +26,4 @@ koagonzalo11.github.io is a Web3-integrated dApp built for **Ethereum** and **Bi
 ### 1️⃣ Clone the Repository  
 ```bash
 git clone https://github.com/koagonzalo11/Koagonzalo11.github.io.git
-cd koagonzalo11.gihub.io
+cd koagonzalo11.github.io
