@@ -1,0 +1,20 @@
+{
+  "name": "koagonzalo11.github.io",
+  "version": "1.0.0",
+  "description": "elaradisogonzalo",
+  "homepage": "https://github.com/koagonzalo11/Koagonzalo11.github.io#readme",
+  "bugs": {
+    "url": "https://github.com/koagonzalo11/Koagonzalo11.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koagonzalo11/Koagonzalo11.github.io.git"
+  },
+  "license": "Apache-2.0",
+  "author": "azeh agowa",
+  "type": "express",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
