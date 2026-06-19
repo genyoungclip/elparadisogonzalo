@@ -1,110 +1,247 @@
-<!DOCTYPE html>
+<!DOCTYPE html>/
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Elparadisogonzalo — a personal universe of creativity, connection, and code."
+  />
   <title>Elparadisogonzalo</title>
   <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent1: #00c6ff;
+      --accent2: #0072ff;
+      --dark: #0f172a;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #fefefe;
-      color: #333;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
     header {
-      background: #0a0a0a;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.95);
       color: #fff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+
     header h1 {
       margin: 0;
-      font-size: 1.8em;
+      font-size: 1.4rem;
+      letter-spacing: 0.2px;
     }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
     nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: white;
+      padding: 88px 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 700px;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      opacity: 0.95;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .section h3 {
+      margin: 0 0 16px;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .section p {
+      margin-top: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .footer {
+      background: var(--dark);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 22px 16px;
+      font-size: 0.95rem;
+    }
+
+    .footer a {
       color: #fff;
-      margin-left: 20px;
       text-decoration: none;
     }
-    nav a:hover {
+
+    .footer a:hover,
+    .footer a:focus-visible {
       text-decoration: underline;
+      outline: none;
     }
-    .hero {
-      padding: 80px 40px;
-      text-align: center;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      color: white;
-    }
-    .hero h2 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    .section {
-      padding: 60px 40px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .section h3 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    .footer {
-      background: #111;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-    @media (max-width: 600px) {
-      header, .hero, .section {
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 64px 0;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .card {
         padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Elparadisogonzalo</h1>
-    <nav>
-      <a href="#story">Story</a>
-      <a href="#features">Features</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container header-inner">
+      <h1>Elparadisogonzalo</h1>
+      <nav aria-label="Primary">
+        <a href="#story">Story</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Welcome to Elparadisogonzalo</h2>
-    <p>Your personal universe of creativity, connection, and code.</p>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Welcome to Elparadisogonzalo</h2>
+        <p>Your personal universe of creativity, connection, and code.</p>
+      </div>
+    </section>
 
-  <section class="section" id="story">
-    <h3>Our Story</h3>
-    <p>Elparadisogonzalo was born out of a passion for digital freedom, creative expression, and innovation. Whether you're exploring art, building apps, or unlocking the power of blockchain—this is your paradise.</p>
-  </section>
+    <section class="section" id="story">
+      <div class="container">
+        <div class="card">
+          <h3>Our Story</h3>
+          <p>
+            Elparadisogonzalo was born out of a passion for digital freedom,
+            creative expression, and innovation. Whether you're exploring art,
+            building apps, or unlocking the power of blockchain, this is your paradise.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="features">
-    <h3>What You’ll Find Here</h3>
-    <ul>
-      <li>Beautiful, curated digital experiences</li>
-      <li>Decentralized tools and integrations</li>
-      <li>Creative media and unique interactions</li>
-      <li>Connected to Google, IPFS, and the open web</li>
-    </ul>
-  </section>
+    <section class="section" id="features">
+      <div class="container">
+        <div class="card">
+          <h3>What You’ll Find Here</h3>
+          <ul>
+            <li>Beautiful, curated digital experiences</li>
+            <li>Decentralized tools and integrations</li>
+            <li>Creative media and unique interactions</li>
+            <li>Connected to Google, IPFS, and the open web</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="contact">
-    <h3>Get in Touch</h3>
-    <p>Want to collaborate, connect, or just say hi?</p>
-    <p>Email: <a href="mailto:genyoungclip@gmail
-com">genyoungclip@gmail.com</a></p>
-  </section>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="card">
+          <h3>Get in Touch</h3>
+          <p>Want to collaborate, connect, or just say hi?</p>
+          <p class="unmuted">
+            Email:
+            <a href="mailto:azehagowa@icloud.com">azehagowa@icloud.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    &copy; 2025 Elparadisogonzalo. All rights reserved.
+    <div class="container">
+      &copy; 2025 Elparadisogonzalo. All rights reserved.
+    </div>
   </footer>
-
 </body>
 </html>
