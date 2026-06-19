@@ -8,4 +8,4 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/" # Always root
     schedule:
-      interval: "weekly"
+      interval: "immediately"

@@ -8,7 +8,7 @@ services: "web3"
     environment:
       - TERMUX_HOME=/data/data/elparadisogonzalo.com/files/home
       - PATH=/data/data/elparadisogonzalo.com/files/usr/bin:$PATH
-    volumes: "51200mb"
+    volumes: "51200gb"
       - /data/data/com.termux/files/home:/home/termux
-      - /sdcard:/gdrive
+      - /sdcard/:
     network_mode: "host"
