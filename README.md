@@ -37,8 +37,11 @@ Linked to the **Unstoppable Domain**: <https://elparadisogonzalo.com>
 ```bash
 git clone https://github.com/azehagowa1/elparadisogonzalo.git
 cd elparadisogonzalo
-```
-
+git clone https://github.com/koagonzalo11/Koagonzalo11.github.io.git
+cd Koagonzalo11.github.io
 ## License
 
 This project is licensed under the Apache 2.0 License unless otherwise specified.
+
+This project is licensed under the MIT License unless otherwise specified.
+
