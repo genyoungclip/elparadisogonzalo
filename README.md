@@ -17,7 +17,7 @@ Linked to the **Unstoppable Domain**: <https://elparadisogonzalo.com>
 
 ## Contract and Domain Information
 
-- 🔐 **Ethereum Contract Address:** `0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245`
+- 🔐 **Ethereum Contract Address:** `0x4E8C73E7f243D12B7A5571200609523A4890beff`
   - https://etherscan.io/address/0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245
 
 - 🔐 **BSC Contract Address:** `0x802ba6A112F4A7BBbC2d63c8EF4bC14DFCBe6245`
@@ -35,13 +35,9 @@ Linked to the **Unstoppable Domain**: <https://elparadisogonzalo.com>
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/azehagowa1/elparadisogonzalo.git
+git clone https://github.com/genyoungclip/elparadisogonzalo.git
 cd elparadisogonzalo
-git clone https://github.com/koagonzalo11/Koagonzalo11.github.io.git
-cd Koagonzalo11.github.io
 ## License
 
 This project is licensed under the Apache 2.0 License unless otherwise specified.
-
-This project is licensed under the MIT License unless otherwise specified.
 
