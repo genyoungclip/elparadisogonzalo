@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "elparadisogonzalo"
-version = "1.0.0"
+version = "1.0.1"
 description = "Elparadisogonzalo full-stack Python package"
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
-  { name = "azehagowa", email = "genyoungclip@gmail.com" }
+  { name = "genyoungclip", email = "genyoungclip@gmail.com" }
 ]
 requires-python = ">=3.10"
 
