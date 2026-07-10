@@ -1,0 +1,32 @@
+name: Self-Hosted ARM64
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on:
+      - self-hosted
+      - Linux
+      - ARM64
+      - elparadisogonzalo
+      - android
+      - .elparadisogonzalo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show runner information
+        run: |
+          echo "Runner: $RUNNER_NAME"
+          echo "OS: $RUNNER_OS"
+          echo "Architecture: $RUNNER_ARCH"
+          uname -a
+
+      - name: Test
+        run: echo "Hello from the Elparadisogonzalo self-hosted ARM64 runner!"
