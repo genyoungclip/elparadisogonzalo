@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/elparadisogonzalo/__init__.py
+src/elparadisogonzalo/main.py
+src/elparadisogonzalo.egg-info/PKG-INFO
+src/elparadisogonzalo.egg-info/SOURCES.txt
+src/elparadisogonzalo.egg-info/dependency_links.txt
+src/elparadisogonzalo.egg-info/top_level.txt

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elparadisogonzalo"
+version = "1.0.0"
+description = "Official Python SDK for Elparadisogonzalo"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name="Azeh Agowa"}
+]
+requires-python = ">=3.10"
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/genyoungclip/elparadisogonzalo"
+Repository = "https://github.com/genyoungclip/elparadisogonzalo"
+Issues = "https://github.com/genyoungclip/elparadisogonzalo/issues"
