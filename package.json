@@ -1,5 +1,5 @@
 {
-  "name": "elparadisogonzalo",
+  "name": "@genyoungclip/elparadisogonzalo",
   "version": "1.0.0",
   "description": "Elparadisogonzalo application",
   "homepage": "https://github.com/genyoungclip/elparadisogonzalo",
@@ -14,11 +14,21 @@
   "author": "azehagowa",
   "type": "module",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "src",
+    "frontend",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "start": "node index.js",
     "test": "echo \"No tests configured\""
   },
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
