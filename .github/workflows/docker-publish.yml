@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   docker:
-    runs-on: elparadisogonzalo
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
