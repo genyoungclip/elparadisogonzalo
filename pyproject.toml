@@ -5,17 +5,32 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "elparadisogonzalo"
 version = "1.0.0"
-description = "Official Python SDK for Elparadisogonzalo"
+description = "Elparadisogonzalo full-stack Python package"
 readme = "README.md"
-license = {text = "Apache-2.0"}
+license = { file = "LICENSE" }
 authors = [
-    {name="Azeh Agowa"}
+  { name = "azehagowa", email = "genyoungclip@gmail.com" }
 ]
 requires-python = ">=3.10"
 
-dependencies = []
+dependencies = [
+  "fastapi",
+  "uvicorn",
+]
 
 [project.urls]
 Homepage = "https://github.com/genyoungclip/elparadisogonzalo"
 Repository = "https://github.com/genyoungclip/elparadisogonzalo"
 Issues = "https://github.com/genyoungclip/elparadisogonzalo/issues"
+
+[project.scripts]
+elparadisogonzalo = "elparadisogonzalo.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+elparadisogonzalo = ["static/**/*"]
