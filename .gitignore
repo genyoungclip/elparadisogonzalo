@@ -5,3 +5,5 @@ node_modules/
 android/local.properties
 *.keystore
 keystore.properties
+frontend/android/app/*.keystore
+*.keystore
