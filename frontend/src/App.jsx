@@ -47,7 +47,7 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="https://react.dev/" target="_blank">
+              <a href="https://github.com/genyoungclip/elparadisogonzalo.git/" target="_blank">
                 <img className="button-icon" src={reactLogo} alt="" />
                 Learn more
               </a>
@@ -62,7 +62,7 @@ function App() {
           <p>Join the Vite community</p>
           <ul>
             <li>
-              <a href="https://genyoungclip.github.io/elparadisogonzalo/frontend/andriod" target="_blank">
+              <a href="https://genyoungclip.github.io/elparadisogonzalo/frontend/" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -98,7 +98,7 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+              <a href="https://github.com/genyoungclip/elparadisogonzalo/frontend" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
