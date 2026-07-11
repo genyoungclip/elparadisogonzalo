@@ -41,7 +41,7 @@ function App() {
           <p>Your questions, answered</p>
           <ul>
             <li>
-              <a href="https://vite.dev/" target="_blank">
+              <a href="https://genyoungclip.github.io/elparadisogonzalo/" target="_blank">
                 <img className="logo" src={viteLogo} alt="" />
                 Explore Vite
               </a>
@@ -62,7 +62,7 @@ function App() {
           <p>Join the Vite community</p>
           <ul>
             <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
+              <a href="https://genyoungclip.github.io/elparadisogonzalo/frontend/andriod" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
