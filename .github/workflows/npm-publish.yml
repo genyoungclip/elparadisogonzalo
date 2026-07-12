@@ -1,35 +1,26 @@
-name: Publish NPM Package
+name: Publish npm package
 
 on:
   push:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  packages: write
+    tags:
+      - "v*"
 
 jobs:
-  publish:
-    runs-on: self-hosted
+  npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: https://npm.pkg.github.com
-          scope: "@genyoungclip"
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Publish package
-        run: npm publish
+      - run: npm install
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
