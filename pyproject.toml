@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/genyoungclip/elparadisogonzalo"
+Homepage = "https://elparadisogonzalo.net"
 Repository = "https://github.com/genyoungclip/elparadisogonzalo"
 Issues = "https://github.com/genyoungclip/elparadisogonzalo/issues"
 

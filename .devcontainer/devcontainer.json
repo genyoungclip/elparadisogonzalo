@@ -20,6 +20,9 @@
     "ghcr.io/devcontainers/features/java:1": {
       "version": "21"
     },
+    "ghcr.io/devcontainers/features/next:1": {
+      "version": "16.2.12"
+    },
     "ghcr.io/devcontainers/features/go:1": {
       "version": "1.24"
     },
@@ -85,6 +88,7 @@
         "elparadisogonzalo",
         "ms-dotnettools.csharp",
         "golang.go",
+        "elparadisogonzalo.net"
         "rust-lang.rust-analyzer",
         "GitHub.vscode-github-actions",
         "openai-api",
