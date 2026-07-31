@@ -8,6 +8,8 @@
 - Web3.js
 - GitHub CLI
 - Google Cloud CLI
+- elparadisogonzalo CI
+- elparadisogonzalo.net CI
 - Web3 wallets
 - Blockchain syncing
 
