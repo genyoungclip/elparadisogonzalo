@@ -2,7 +2,7 @@
 <configuration>
     <packageSources>
         <clear />
-        <add key="github" value="https://nuget.pkg.github.com/elparadisogonzalo/elparadisogonzalo.github.io/index.json" />
+        <add key="github" value="https://nuget.pkg.github.com/genyoungclip/elparadisogonzalo/index.json" />
     </packageSources>
     <packageSourceCredentials>
         <github>
