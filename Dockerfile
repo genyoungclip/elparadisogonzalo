@@ -1,6 +1,6 @@
 FROM node:22 AS frontend
 
-WORKDIR /frontend
+WORKDIR /
 
 COPY frontend/package*.json ./
 
