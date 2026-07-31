@@ -15,11 +15,18 @@ jobs:
       - ARM64
       - elparadisogonzalo
       - android
+      - elparadisogonzalo.net
       - .elparadisogonzalo
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Configure CNAME
+        run: |
+          echo "elparadisogonzalo.net" > CNAME
+          echo "CNAME configured:"
+          cat CNAME
 
       - name: Show runner information
         run: |
@@ -29,4 +36,6 @@ jobs:
           uname -a
 
       - name: Test
-        run: echo "Hello from the Elparadisogonzalo self-hosted ARM64 runner!"
+        run: |
+          echo "Hello from the Elparadisogonzalo self-hosted ARM64 runner!"
+          echo "Domain: elparadisogonzalo.net"
