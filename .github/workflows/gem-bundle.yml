@@ -1,0 +1,83 @@
+name: Build and Publish Gem Bundle
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: false
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Check bundle
+        run: bundle check
+
+      - name: Build Ruby gem
+        run: gem build elparadisogonzalo.gemspec
+
+      - name: Create Bundler cache
+        run: |
+          bundle cache --all --no-install
+          mkdir -p dist
+          cp elparadisogonzalo-*.gem dist/
+          cp Gemfile Gemfile.lock dist/ 2>/dev/null || true
+          cp -r vendor/cache dist/vendor-cache
+
+      - name: Configure GitHub Packages authentication
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p ~/.gem
+
+          cat > ~/.gem/credentials <<EOF
+          ---
+          :github: Bearer ${GITHUB_TOKEN}
+          EOF
+
+          chmod 600 ~/.gem/credentials
+
+      - name: Publish gem to GitHub Packages
+        run: |
+          gem push \
+            --key github \
+            --host "https://rubygems.pkg.github.com/${{ github.repository_owner }}" \
+            elparadisogonzalo-*.gem
+
+      - name: Create bundle archive
+        run: |
+          tar -czf \
+            "elparadisogonzalo-${GITHUB_REF_NAME}-bundle.tar.gz" \
+            -C dist .
+
+      - name: Upload bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: elparadisogonzalo-gem-bundle
+          path: |
+            elparadisogonzalo-${{ github.ref_name }}-bundle.tar.gz
+            dist/*.gem
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            elparadisogonzalo-${{ github.ref_name }}-bundle.tar.gz
+            dist/*.gem
