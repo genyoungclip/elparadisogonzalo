@@ -24,7 +24,7 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: gradle
-          cache-dependency-path: frontend/android/gradle/wrapper/gradle-wrapper.properties
+          cache-dependency-path: android/gradle/wrapper/gradle-wrapper.properties
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -67,19 +67,26 @@ jobs:
         run: |
           npx cap sync android
 
-      - name: Verify Cordova Android plugins
+      - name: Verify Capacitor Android files
         run: |
-          test -f frontend/android/capacitor-cordova-android-plugins/cordova.variables.gradle
+          echo "Android project:"
+          ls -la android
+
+          echo "Capacitor Cordova plugin directory:"
+          ls -la android/capacitor-cordova-android-plugins 2>/dev/null || true
+
+          test -f android/capacitor-cordova-android-plugins/cordova.variables.gradle
 
           echo "cordova.variables.gradle:"
-          ls -lh frontend/android/capacitor-cordova-android-plugins/cordova.variables.gradle
+          ls -lh android/capacitor-cordova-android-plugins/cordova.variables.gradle
 
       - name: Verify Android Gradle project
-        working-directory: frontend/android
+        working-directory: android
         run: |
           echo "Android project:"
           pwd
 
+          echo "Project files:"
           ls -la
 
           echo "Gradle wrapper:"
@@ -93,15 +100,17 @@ jobs:
           test -f gradle/wrapper/gradle-wrapper.properties
 
       - name: Make Gradle executable
-        working-directory: frontend/android
-        run: chmod +x gradlew
+        working-directory: android
+        run: |
+          chmod +x gradlew
 
       - name: Verify Gradle wrapper
-        working-directory: frontend/android
-        run: ./gradlew --version
+        working-directory: android
+        run: |
+          ./gradlew --version
 
       - name: Build release APK
-        working-directory: frontend/android
+        working-directory: android
         run: |
           ./gradlew assembleRelease \
             --no-daemon \
@@ -110,7 +119,7 @@ jobs:
       - name: Find release APK
         run: |
           echo "Release APK files:"
-          find frontend/android \
+          find android \
             -type f \
             -name "*.apk" \
             -print
@@ -119,5 +128,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: elparadisogonzalo-release-apk
-          path: frontend/android/**/build/outputs/apk/release/*.apk
+          path: android/**/build/outputs/apk/release/*.apk
           if-no-files-found: error

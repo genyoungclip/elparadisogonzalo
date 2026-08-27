@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">elparadisogonzalo</string>
+    <string name="title_activity_main">elparadisogonzalo</string>
+    <string name="package_name">net.genyoungclip</string>
+    <string name="custom_url_scheme">net.genyoungclip</string>
+</resources>
