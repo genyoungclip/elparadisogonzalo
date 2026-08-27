@@ -14,10 +14,6 @@ jobs:
     name: Build Android APK
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: frontend
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -28,7 +24,7 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: gradle
-          cache-dependency-path: frontend/**/gradle-wrapper.properties
+          cache-dependency-path: frontend/android/gradle/wrapper/gradle-wrapper.properties
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
@@ -36,6 +32,7 @@ jobs:
       - name: Install Android SDK packages
         run: |
           yes | sdkmanager --licenses || true
+
           sdkmanager \
             "platform-tools" \
             "platforms;android-36" \
@@ -45,61 +42,59 @@ jobs:
         run: |
           echo "ANDROID_HOME=$ANDROID_HOME"
           echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
-          sdkmanager --list_installed
-          ls -la "$ANDROID_HOME/platforms/android-36"
-          ls -la "$ANDROID_HOME/build-tools/36.0.0"
 
-      - name: Locate Gradle wrapper
+          sdkmanager --list_installed
+
+          test -d "$ANDROID_HOME/platforms/android-36"
+          test -d "$ANDROID_HOME/build-tools/36.0.0"
+
+      - name: Verify Android Gradle project
+        working-directory: frontend/android
         run: |
-          echo "Current directory:"
+          echo "Android project:"
           pwd
 
-          echo "Frontend contents:"
+          echo "Project files:"
           ls -la
 
-          if [ -f "./gradlew" ]; then
-            echo "Found: frontend/gradlew"
-          elif [ -f "../gradlew" ]; then
-            echo "Found: gradlew"
-          else
-            echo "ERROR: Gradle wrapper not found"
-            find .. -maxdepth 4 -name gradlew -type f -print
-            exit 1
-          fi
+          echo "Gradle wrapper:"
+          ls -la gradlew
+
+          echo "Gradle wrapper files:"
+          ls -la gradle/wrapper
+
+          test -f gradlew
+          test -f gradle/wrapper/gradle-wrapper.jar
+          test -f gradle/wrapper/gradle-wrapper.properties
 
       - name: Make Gradle executable
+        working-directory: frontend/android
         run: |
-          if [ -f "./gradlew" ]; then
-            chmod +x ./gradlew
-          else
-            chmod +x ../gradlew
-          fi
+          chmod +x gradlew
 
       - name: Verify Gradle wrapper
+        working-directory: frontend/android
         run: |
-          if [ -f "./gradlew" ]; then
-            ./gradlew --version
-          else
-            ../gradlew --version
-          fi
+          ./gradlew --version
 
       - name: Build release APK
+        working-directory: frontend/android
         run: |
-          if [ -f "./gradlew" ]; then
-            ./gradlew assembleRelease --no-daemon --stacktrace
-          else
-            ../gradlew assembleRelease --no-daemon --stacktrace
-          fi
+          ./gradlew assembleRelease \
+            --no-daemon \
+            --stacktrace
 
       - name: Find release APK
         run: |
-          echo "APK files:"
-          find .. -type f -name "*.apk" -print
+          echo "Release APK files:"
+          find frontend/android \
+            -type f \
+            -name "*.apk" \
+            -print
 
       - name: Upload release APK
         uses: actions/upload-artifact@v4
         with:
           name: elparadisogonzalo-release-apk
-          path: |
-            frontend/**/build/outputs/apk/release/*.apk
+          path: frontend/android/**/build/outputs/apk/release/*.apk
           if-no-files-found: error
