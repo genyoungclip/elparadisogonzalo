@@ -12,7 +12,7 @@ RUN npm run build
 
 
 
-FROM python:3.12-slim
+FROM python:3.12
 
 WORKDIR /app
 
@@ -22,6 +22,6 @@ COPY --from=frontend /frontend/dist src/elparadisogonzalo/static
 
 RUN pip install .
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD ["elparadisogonzalo"]
