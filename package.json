@@ -15,7 +15,6 @@
   "type": "module",
   "main": "index.js",
   "files": [
-    "index.js",
     "index.html",
     "dist",
     ".elparadisogonzalo",
