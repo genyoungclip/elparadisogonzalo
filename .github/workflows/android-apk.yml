@@ -1,4 +1,4 @@
-name: Build ELP Terminal APK
+name: Build elparadisogonzalo APK
 
 on:
   push:
@@ -49,18 +49,18 @@ jobs:
         run: ./gradlew --version
 
       - name: Build Debug APK
-        working-directory: android
+        working-directory: frontend/android
         run: ./gradlew assembleRelease
 
       - name: Locate APK
         run: |
           echo "Generated APKs:"
-          find android/app/build/outputs/apk -type f -name "*.apk" -print
+          find frontend/android/app/build/outputs/apk -type f -name "*.apk" -print
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v6
         with:
-          name: ELP-Terminal-${{ github.sha }}-release
-          path: android/app/build/outputs/apk/release/*.apk
+          name: elparadisogonzalo-${{ github.sha }}-release
+          path: frontend/android/app/build/outputs/apk/release/*.apk
           if-no-files-found: error
           retention-days: 14
