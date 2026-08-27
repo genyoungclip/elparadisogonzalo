@@ -53,15 +53,13 @@ jobs:
           echo "ANDROID_HOME=$ANDROID_HOME"
           echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
 
-          sdkmanager --list_installed
-
           test -d "$ANDROID_HOME/platforms/android-36"
           test -d "$ANDROID_HOME/build-tools/36.0.0"
 
       - name: Verify Capacitor
         run: |
           npx cap --version
-          npx cap doctor
+          npx cap ls
 
       - name: Sync Capacitor Android project
         run: |
@@ -69,15 +67,10 @@ jobs:
 
       - name: Verify Capacitor Android files
         run: |
-          echo "Android project:"
-          ls -la android
-
-          echo "Capacitor Cordova plugin directory:"
-          ls -la android/capacitor-cordova-android-plugins 2>/dev/null || true
-
           test -f android/capacitor-cordova-android-plugins/cordova.variables.gradle
 
-          echo "cordova.variables.gradle:"
+          echo "Capacitor Android files:"
+          ls -la android
           ls -lh android/capacitor-cordova-android-plugins/cordova.variables.gradle
 
       - name: Verify Android Gradle project
@@ -86,13 +79,7 @@ jobs:
           echo "Android project:"
           pwd
 
-          echo "Project files:"
           ls -la
-
-          echo "Gradle wrapper:"
-          ls -la gradlew
-
-          echo "Gradle wrapper files:"
           ls -la gradle/wrapper
 
           test -f gradlew
@@ -101,13 +88,11 @@ jobs:
 
       - name: Make Gradle executable
         working-directory: android
-        run: |
-          chmod +x gradlew
+        run: chmod +x gradlew
 
       - name: Verify Gradle wrapper
         working-directory: android
-        run: |
-          ./gradlew --version
+        run: ./gradlew --version
 
       - name: Build release APK
         working-directory: android
@@ -118,7 +103,6 @@ jobs:
 
       - name: Find release APK
         run: |
-          echo "Release APK files:"
           find android \
             -type f \
             -name "*.apk" \
