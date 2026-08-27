@@ -26,6 +26,16 @@ jobs:
           cache: gradle
           cache-dependency-path: frontend/android/gradle/wrapper/gradle-wrapper.properties
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install Node dependencies
+        run: npm ci
+
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
 
@@ -48,13 +58,28 @@ jobs:
           test -d "$ANDROID_HOME/platforms/android-36"
           test -d "$ANDROID_HOME/build-tools/36.0.0"
 
+      - name: Verify Capacitor
+        run: |
+          npx cap --version
+          npx cap doctor
+
+      - name: Sync Capacitor Android project
+        run: |
+          npx cap sync android
+
+      - name: Verify Cordova Android plugins
+        run: |
+          test -f frontend/android/capacitor-cordova-android-plugins/cordova.variables.gradle
+
+          echo "cordova.variables.gradle:"
+          ls -lh frontend/android/capacitor-cordova-android-plugins/cordova.variables.gradle
+
       - name: Verify Android Gradle project
         working-directory: frontend/android
         run: |
           echo "Android project:"
           pwd
 
-          echo "Project files:"
           ls -la
 
           echo "Gradle wrapper:"
@@ -69,13 +94,11 @@ jobs:
 
       - name: Make Gradle executable
         working-directory: frontend/android
-        run: |
-          chmod +x gradlew
+        run: chmod +x gradlew
 
       - name: Verify Gradle wrapper
         working-directory: frontend/android
-        run: |
-          ./gradlew --version
+        run: ./gradlew --version
 
       - name: Build release APK
         working-directory: frontend/android
