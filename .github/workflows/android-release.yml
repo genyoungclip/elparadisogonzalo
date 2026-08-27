@@ -32,30 +32,52 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
-        with:
-          packages: |
-            platform-tools
-            platforms;android-36
-            build-tools;36.0.0
+
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager \
+            "platform-tools" \
+            "platforms;android-36" \
+            "build-tools;36.0.0"
+
+      - name: Verify Android SDK
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+          sdkmanager --list_installed
+          ls -la "$ANDROID_HOME/platforms/android-36"
+          ls -la "$ANDROID_HOME/build-tools/36.0.0"
+
+      - name: Locate Gradle wrapper
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Frontend contents:"
+          ls -la
+
+          if [ -f "./gradlew" ]; then
+            echo "Found: frontend/gradlew"
+          elif [ -f "../gradlew" ]; then
+            echo "Found: gradlew"
+          else
+            echo "ERROR: Gradle wrapper not found"
+            find .. -maxdepth 4 -name gradlew -type f -print
+            exit 1
+          fi
 
       - name: Make Gradle executable
         run: |
-          if [ -f ./gradlew ]; then
+          if [ -f "./gradlew" ]; then
             chmod +x ./gradlew
-          elif [ -f ../gradlew ]; then
-            chmod +x ../gradlew
           else
-            echo "ERROR: gradlew was not found"
-            echo "Contents of frontend:"
-            ls -la
-            echo "Searching for Gradle wrapper:"
-            find .. -maxdepth 3 -name gradlew -type f -print
-            exit 1
+            chmod +x ../gradlew
           fi
 
       - name: Verify Gradle wrapper
         run: |
-          if [ -f ./gradlew ]; then
+          if [ -f "./gradlew" ]; then
             ./gradlew --version
           else
             ../gradlew --version
@@ -63,7 +85,7 @@ jobs:
 
       - name: Build release APK
         run: |
-          if [ -f ./gradlew ]; then
+          if [ -f "./gradlew" ]; then
             ./gradlew assembleRelease --no-daemon --stacktrace
           else
             ../gradlew assembleRelease --no-daemon --stacktrace
@@ -71,8 +93,8 @@ jobs:
 
       - name: Find release APK
         run: |
-          echo "Release APK files:"
-          find . -type f -name "*.apk" -print
+          echo "APK files:"
+          find .. -type f -name "*.apk" -print
 
       - name: Upload release APK
         uses: actions/upload-artifact@v4
